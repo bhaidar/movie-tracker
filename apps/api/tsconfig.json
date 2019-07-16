@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "types": ["node", "jest"],
+    "target": "ES2017",
+    "module": "commonjs",
+    "lib": ["es2017", "dom"],
+    "allowJs": true,
+    "sourceMap": true,
+    "outDir": "../../dist/",
+    "rootDir": "../"
+  },
+  "include": ["**/*.ts"]
+}
