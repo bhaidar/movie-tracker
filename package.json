@@ -37,5 +37,26 @@
     "typescript": "~3.4.5",
     "prettier": "1.16.4",
     "@angular/cli": "8.0.0"
+  },
+  "engines": {
+    "node": "10.x"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "concurrent": false,
+    "linters": {
+      "*.{ts,js,json,css,scss,md,html,component.html}": [
+        "yarn run prettier --write",
+        "git add"
+      ],
+      "*.ts": [
+        "yarn run tslint --fix",
+        "git add"
+      ]
+    }
   }
 }
