@@ -95,7 +95,8 @@
   "lint-staged": {
     "concurrent": false,
     "linters": {
-      "*.{ts,js,json,css,scss,md,html,component.html}": [
+      "*.{ts,js,json,css,scss,md,html,component.html,graphql}": [
+        "echo hi",
         "yarn run prettier --write",
         "git add"
       ],
