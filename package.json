@@ -76,10 +76,11 @@
     "@types/node": "~8.9.4",
     "codelyzer": "~5.0.1",
     "cypress": "^3.4.0",
+    "husky": "^3.0.0",
     "jest": "24.1.0",
     "jest-preset-angular": "^7.1.1",
     "lint-staged": "^9.2.0",
-    "prettier": "1.16.4",
+    "prettier": "^1.18.2",
     "ts-jest": "24.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
@@ -94,17 +95,14 @@
     }
   },
   "lint-staged": {
-    "concurrent": false,
-    "linters": {
-      "*.{ts,js,json,css,scss,md,html,component.html,graphql}": [
-        "echo hi",
-        "yarn run prettier --write",
-        "git add"
-      ],
-      "*.ts": [
-        "yarn run tslint --fix",
-        "git add"
-      ]
-    }
+    "*.{ts,js,json,css,scss,md,html,component.html,graphql}": [
+      "echo hi",
+      "yarn run prettier --write",
+      "git add"
+    ],
+    "*.ts": [
+      "yarn run tslint --fix",
+      "git add"
+    ]
   }
 }

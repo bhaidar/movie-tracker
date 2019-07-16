@@ -8,6 +8,6 @@ export class AppController {
 
   @Get('todos')
   getData() {
-           return this.appService.getData();
+    return this.appService.getData();
   }
 }
