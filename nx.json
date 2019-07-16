@@ -7,15 +7,5 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "projects": {
-    "movietracker-e2e": {
-      "tags": []
-    },
-    "movietracker": {
-      "tags": []
-    },
-    "api": {
-      "tags": []
-    }
-  }
+  "projects": {}
 }
