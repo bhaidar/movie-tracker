@@ -1,5 +1,5 @@
 {
-  "npmScope": "movie-tracker",
+  "npmScope": "mt",
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": "*",
@@ -15,6 +15,21 @@
       "tags": []
     },
     "api": {
+      "tags": []
+    },
+    "movietracker-movies": {
+      "tags": []
+    },
+    "movietracker-ui": {
+      "tags": []
+    },
+    "movietracker-core": {
+      "tags": []
+    },
+    "interfaces": {
+      "tags": []
+    },
+    "api-services": {
       "tags": []
     }
   }

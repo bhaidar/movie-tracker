@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="search-bar">
+    <mt-movietracker-search-bar
+      (action)="doAction($event)"
+    ></mt-movietracker-search-bar>
+  </div>
+  <div class="results">
+    <mt-movietracker-grid
+      [dataSource]="dataSource$ | async"
+      (action)="doAction($event)"
+    ></mt-movietracker-grid>
+  </div>
+</div>

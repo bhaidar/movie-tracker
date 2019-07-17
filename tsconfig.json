@@ -15,7 +15,14 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@mt/movietracker/movies": ["libs/movietracker/movies/src/index.ts"],
+      "@mt/movietracker/ui": ["libs/movietracker/ui/src/index.ts"],
+      "@mt/movietracker/core": ["libs/movietracker/core/src/index.ts"],
+      "@mt/interfaces": ["libs/interfaces/src/index.ts"],
+      "@mt/api-services": ["libs/api-services/src/index.ts"],
+      "@movietracker/*": ["apps/api/src/app/movietracker/*"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
