@@ -9,7 +9,8 @@ import {
   Put,
   Query,
   HttpCode,
-  Delete
+  Delete,
+  ParseUUIDPipe
 } from '@nestjs/common';
 import { MovieListDto } from './dto/movie.list.dto';
 import { AddMovieDto } from './dto/movie.create.dto';
@@ -22,7 +23,7 @@ export class MovieTrackerController {
   constructor(private readonly movieTrackerService: MovieTrackerService) {}
 
   @Get()
-  async searchMovies(@Query() query: SearchMovieDto): Promise<MovieListDto> {
+  async findAll(@Query() query: SearchMovieDto): Promise<MovieListDto> {
     const movies = await this.movieTrackerService.searchMovies(
       query.term || ''
     );
@@ -30,17 +31,16 @@ export class MovieTrackerController {
   }
 
   @Post()
-  async add(
+  async create(
     @Body() addMovieDto: AddMovieDto,
     @Req() req: any
   ): Promise<MovieDto> {
-    console.log(addMovieDto);
     return await this.movieTrackerService.addMovie(addMovieDto);
   }
 
   @Put(':id')
   async update(
-    @Param('id') id: string,
+    @Param('id', new ParseUUIDPipe()) id: string,
     @Body() movieDto: MovieDto
   ): Promise<MovieDto> {
     return await this.movieTrackerService.updateMovie(id, movieDto);
@@ -48,7 +48,9 @@ export class MovieTrackerController {
 
   @Delete(':id')
   @HttpCode(204)
-  async destory(@Param('id') id: string): Promise<MovieDto> {
+  async destory(
+    @Param('id', new ParseUUIDPipe()) id: string
+  ): Promise<MovieDto> {
     return await this.movieTrackerService.destoryMovie(id);
   }
 }

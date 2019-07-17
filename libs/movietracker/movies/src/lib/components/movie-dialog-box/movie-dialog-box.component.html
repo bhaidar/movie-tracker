@@ -41,11 +41,11 @@
           [(ngModel)]="movie.genre"
         />
       </mat-form-field>
-      <mat-star-rating
+      <mt-star-rating
         name="rating"
         #rating="ngModel"
         [(ngModel)]="movie.rating"
-      ></mat-star-rating>
+      ></mt-star-rating>
     </ng-container>
     <ng-template #deleteTemplate>
       Are you sure you want to delete <strong>{{ movie.title }}</strong

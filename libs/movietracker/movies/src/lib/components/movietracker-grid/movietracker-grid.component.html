@@ -1,3 +1,44 @@
-<p>
-  movietracker-grid works!
-</p>
+<div class="add-row">
+  <button mat-raised-button color="primary" (click)="doAction('create')">
+    Add Movie
+  </button>
+</div>
+<ng-container *ngIf="dataSource && dataSource.length > 0; else noDataTemplate">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Title Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef>Title</th>
+      <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+    </ng-container>
+    <!-- WatchOn Column -->
+    <ng-container matColumnDef="watchedOn">
+      <th mat-header-cell *matHeaderCellDef>Watched On</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.watchedOn | date: 'mediumDate' }}
+      </td>
+    </ng-container>
+    <!-- Genre Column -->
+    <ng-container matColumnDef="genre">
+      <th mat-header-cell *matHeaderCellDef>Genre</th>
+      <td mat-cell *matCellDef="let element">{{ element.genre }}</td>
+    </ng-container>
+    <!-- Rating Column -->
+    <ng-container matColumnDef="rating">
+      <th mat-header-cell *matHeaderCellDef>Rating</th>
+      <td mat-cell *matCellDef="let element">{{ element.rating }}</td>
+    </ng-container>
+    <!-- Action Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let element" class="action-link">
+        <a (click)="doAction('update', element)">Edit</a> |
+        <a (click)="doAction('delete', element)">Delete</a>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</ng-container>
+<ng-template #noDataTemplate>
+  <p>No records found!</p>
+</ng-template>

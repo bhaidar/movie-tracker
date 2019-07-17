@@ -1,6 +1,6 @@
 import { Component, Optional, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Movie } from '@mt/api-services';
+import { Movie } from '@mt/interfaces';
 
 export interface MovieDialogBoxOptions {
   movie?: Movie;
