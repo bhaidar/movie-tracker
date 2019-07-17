@@ -3,7 +3,7 @@ import { AppModule } from './app/app.module';
 import { getDbConnectionOptions } from './app/shared/utils';
 import { ValidationPipe, Logger } from '@nestjs/common';
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 async function bootstrap() {
   const app = await NestFactory.create(
