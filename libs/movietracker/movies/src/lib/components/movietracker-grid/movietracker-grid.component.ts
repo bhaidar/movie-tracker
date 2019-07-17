@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Movie } from '@mt/api-services';
 import { MtAction } from '@mt/movietracker/core';
+import { Movie } from '@mt/interfaces';
 
 @Component({
   selector: 'mt-movietracker-grid',

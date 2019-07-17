@@ -1,10 +1,11 @@
 import {
   IsNotEmpty,
-  IsDateString,
   IsString,
   IsOptional,
-  IsNumber
+  IsNumber,
+  IsDate
 } from 'class-validator';
+import { Type } from 'class-transformer';
 
 export class MovieDto {
   @IsNotEmpty()
@@ -13,7 +14,8 @@ export class MovieDto {
   @IsOptional()
   title: string;
 
-  @IsDateString()
+  @IsDate()
+  @Type(() => Date)
   @IsOptional()
   watchedOn: Date;
 

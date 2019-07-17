@@ -3,8 +3,9 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { switchMap, filter, map, mergeMap, take, tap } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { MtAction } from '@mt/movietracker/core';
-import { Movie, MovieTrackerService } from '@mt/api-services';
+import { MovieTrackerService } from '@mt/api-services';
 import { MovieDialogBoxComponent } from '../../components/movie-dialog-box/movie-dialog-box.component';
+import { Movie } from '@mt/interfaces';
 
 @Component({
   selector: 'mt-movietracker-movies-list',
@@ -47,48 +48,50 @@ export class MovieTrackerMoviesListComponent implements OnInit {
   }
 
   private createMovie(): void {
-    // const dialogRef = this.dialog.open(MovieDialogBoxComponent, {
-    //   data: { action: 'create', movie: {} }
-    // });
-    // dialogRef
-    //   .afterClosed()
-    //   .pipe(
-    //     filter((result: MtAction) => result && result.type === 'create'),
-    //     map((result: MtAction) => result.payload),
-    //     mergeMap((createdMovie: Movie) => this.movieService.post(createdMovie)),
-    //     take(1)
-    //   )
-    //   .subscribe(() => this.refresh$.next(''));
+    const dialogRef = this.dialog.open(MovieDialogBoxComponent, {
+      data: { action: 'create', movie: {} }
+    });
+    dialogRef
+      .afterClosed()
+      .pipe(
+        filter((result: MtAction) => result && result.type === 'create'),
+        map((result: MtAction) => result.payload),
+        mergeMap((createdMovie: Movie) =>
+          this.movieService.addMovie(createdMovie)
+        ),
+        take(1)
+      )
+      .subscribe(() => this.refresh$.next(''));
   }
 
   private deleteMovie(movie: Movie): void {
-    // const dialogRef = this.dialog.open(MovieDialogBoxComponent, {
-    //   data: { action: 'delete', movie }
-    // });
-    // dialogRef
-    //   .afterClosed()
-    //   .pipe(
-    //     filter((result: MtAction) => result && result.type === 'delete'),
-    //     mergeMap(() => this.movieService.delete(movie.id)),
-    //     take(1)
-    //   )
-    //   .subscribe(() => this.refresh$.next(''));
+    const dialogRef = this.dialog.open(MovieDialogBoxComponent, {
+      data: { action: 'delete', movie }
+    });
+    dialogRef
+      .afterClosed()
+      .pipe(
+        filter((result: MtAction) => result && result.type === 'delete'),
+        mergeMap(() => this.movieService.deleteMovie(movie.id)),
+        take(1)
+      )
+      .subscribe(() => this.refresh$.next(''));
   }
 
   private updateMovie(movie: Movie): void {
-    // const dialogRef = this.dialog.open(MovieDialogBoxComponent, {
-    //   data: { action: 'edit', movie }
-    // });
-    // dialogRef
-    //   .afterClosed()
-    //   .pipe(
-    //     filter((result: MtAction) => result && result.type === 'edit'),
-    //     map((result: MtAction) => result.payload),
-    //     mergeMap((updatedMovie: Movie) =>
-    //       this.movieService.put(updatedMovie.id, updatedMovie)
-    //     ),
-    //     take(1)
-    //   )
-    //   .subscribe(() => this.refresh$.next(''));
+    const dialogRef = this.dialog.open(MovieDialogBoxComponent, {
+      data: { action: 'edit', movie }
+    });
+    dialogRef
+      .afterClosed()
+      .pipe(
+        filter((result: MtAction) => result && result.type === 'edit'),
+        map((result: MtAction) => result.payload),
+        mergeMap((updatedMovie: Movie) =>
+          this.movieService.updateMovie(updatedMovie)
+        ),
+        take(1)
+      )
+      .subscribe(() => this.refresh$.next(''));
   }
 }
