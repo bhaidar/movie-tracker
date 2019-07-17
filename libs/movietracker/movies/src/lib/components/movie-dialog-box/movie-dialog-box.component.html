@@ -1,0 +1,63 @@
+<h1 mat-dialog-title>
+  Row Action :: <strong>{{ action | titlecase }}</strong>
+</h1>
+<form #form="ngForm" autocomplete="off">
+  <div mat-dialog-content>
+    <ng-container *ngIf="action != 'delete'; else deleteTemplate">
+      <mat-form-field>
+        <input
+          name="title"
+          required="true"
+          #title="ngModel"
+          placeholder="Title"
+          matInput
+          [(ngModel)]="movie.title"
+        />
+        <mat-error *ngIf="title.invalid && title.errors.required"
+          >Name is required</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          required="true"
+          (click)="picker.open()"
+          readonly
+          name="watchedOn"
+          #watchedOn="ngModel"
+          [matDatepicker]="picker"
+          placeholder="Watched On"
+          [(ngModel)]="movie.watchedOn"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          name="genre"
+          #genre="ngModel"
+          placeholder="Genre"
+          matInput
+          [(ngModel)]="movie.genre"
+        />
+      </mat-form-field>
+      <mat-star-rating
+        name="rating"
+        #rating="ngModel"
+        [(ngModel)]="movie.rating"
+      ></mat-star-rating>
+    </ng-container>
+    <ng-template #deleteTemplate>
+      Are you sure you want to delete <strong>{{ movie.title }}</strong
+      >?
+    </ng-template>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button [disabled]="!form.valid" (click)="doAction()">
+      {{ action | titlecase }}
+    </button>
+    <button mat-button (click)="closeDialog()" mat-flat-button color="warn">
+      Cancel
+    </button>
+  </div>
+</form>

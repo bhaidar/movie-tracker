@@ -4,6 +4,6 @@
     "outDir": "../../dist/",
     "types": []
   },
-  "include": ["**/*.ts"],
+  "include": ["**/*.ts", "../../libs/movietracker/movies/src/index.ts"],
   "exclude": ["src/test-setup.ts", "**/*.spec.ts"]
 }

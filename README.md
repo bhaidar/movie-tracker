@@ -82,3 +82,5 @@ Run `npm run dep-graph` to see a diagram of the dependencies of your projects.
 ## Further help
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.
+
+- ng g component components/app-layout-component --project=movietracker-ui --export

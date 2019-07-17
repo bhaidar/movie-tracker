@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'movie-tracker-root',
+  selector: 'mt-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

@@ -1,0 +1,15 @@
+{
+  "name": "development",
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "movietracker",
+  "password": "password123",
+  "database": "movietracker",
+  "synchronize": true,
+  "logging": true,
+  "entities": ["dist/api/**/*.entity.js"],
+  "cli": {
+    "entitiesDir": "apps/api/app/src"
+  }
+}
