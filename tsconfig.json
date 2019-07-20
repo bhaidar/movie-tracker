@@ -21,7 +21,10 @@
       "@mt/movietracker/core": ["libs/movietracker/core/src/index.ts"],
       "@mt/interfaces": ["libs/interfaces/src/index.ts"],
       "@mt/api-services": ["libs/api-services/src/index.ts"],
-      "@movietracker/*": ["apps/api/src/app/movietracker/*"]
+      "@movietracker/*": ["apps/api/src/app/movietracker/*"],
+      "@mt/users": ["libs/users/src/index.ts"],
+      "@mt/api/users": ["libs/api/users/src/index.ts"],
+      "@mt/api/auth": ["libs/api/auth/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

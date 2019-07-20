@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app/app.module';
 import { getDbConnectionOptions } from './app/shared/utils';
 import { ValidationPipe, Logger } from '@nestjs/common';
+import { UserSeed } from './app/users';
 
 const port = process.env.PORT || 3000;
 
@@ -29,7 +30,7 @@ async function bootstrap() {
     })
   );
 
-  await app.listen(port);
+  await await app.listen(port);
 
   Logger.log(`Server started running on http://localhost:${port}`, 'Bootstrap');
 }
