@@ -19,9 +19,9 @@
     "run:server": "node -r dotenv/config -r source-map-support/register dist/api/src/main.js",
     "stop:services": "docker-compose kill",
     "typeorm:cli": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js -f ormconfig.json",
-    "migration:generate": "npm-run-all -s -l clean build:server && yarn typeorm:cli migration:generate",
-    "migration:create": "yarn typeorm:cli migration:create",
-    "migration:run": "npm-run-all -s -l clean build:server && yarn typeorm:cli migration:run",
+    "db:migration:generate": "npm-run-all -s -l clean build:server && yarn typeorm:cli migration:generate",
+    "db:migration:create": "yarn typeorm:cli migration:create",
+    "db:migrate": "npm-run-all -s -l clean build:server && yarn typeorm:cli migration:run",
     "query": "yarn typeorm:cli query",
     "ng": "ng",
     "start": "ng serve",
@@ -83,6 +83,7 @@
     "zone.js": "^0.9.1"
   },
   "devDependencies": {
+    "jest-preset-angular": "^7.1.1",
     "@angular-devkit/build-angular": "^0.800.0",
     "@angular/cli": "8.0.0",
     "@angular/compiler-cli": "^8.0.0",
@@ -101,7 +102,6 @@
     "cypress": "^3.4.0",
     "husky": "^3.0.0",
     "jest": "24.1.0",
-    "jest-preset-angular": "^7.1.1",
     "lint-staged": "^9.2.0",
     "prettier": "^1.18.2",
     "ts-jest": "24.0.0",

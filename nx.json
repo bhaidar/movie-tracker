@@ -31,6 +31,9 @@
     },
     "api-services": {
       "tags": []
+    },
+    "movietracker-auth": {
+      "tags": []
     }
   }
 }

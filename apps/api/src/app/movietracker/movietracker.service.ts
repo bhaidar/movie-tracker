@@ -2,7 +2,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { MovieEntity } from './entity/movie.entity';
 import { Repository } from 'typeorm';
-import { Like } from 'typeorm';
 
 import { MovieDto } from './dto/movie.dto';
 import { toMovieDto } from './mapper';

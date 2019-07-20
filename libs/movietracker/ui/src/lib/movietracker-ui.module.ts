@@ -10,4 +10,4 @@ import { StarRatingComponent } from './components/star-rating/star-rating.compon
   declarations: [AppLayoutComponent, StarRatingComponent],
   exports: [AppLayoutComponent, ...material, StarRatingComponent]
 })
-export class MovieTrackerUiModule {}
+export class MovietrackerUiModule {}

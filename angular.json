@@ -320,6 +320,37 @@
           }
         }
       }
+    },
+    "movietracker-auth": {
+      "projectType": "library",
+      "root": "libs/movietracker/auth",
+      "sourceRoot": "libs/movietracker/auth/src",
+      "prefix": "mt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/movietracker/auth/tsconfig.lib.json",
+              "libs/movietracker/auth/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/movietracker/auth/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/movietracker/auth/jest.config.js",
+            "tsConfig": "libs/movietracker/auth/tsconfig.spec.json",
+            "setupFile": "libs/movietracker/auth/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

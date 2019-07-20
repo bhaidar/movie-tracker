@@ -1,14 +1,14 @@
 import { async, TestBed } from '@angular/core/testing';
-import { MovieTrackerCoreModule } from './movietracker-core.module';
+import { MovietrackerCoreModule } from './movietracker-core.module';
 
 describe('MovietrackerCoreModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MovieTrackerCoreModule]
+      imports: [MovietrackerCoreModule]
     }).compileComponents();
   }));
 
   it('should create', () => {
-    expect(MovieTrackerCoreModule).toBeDefined();
+    expect(MovietrackerCoreModule).toBeDefined();
   });
 });

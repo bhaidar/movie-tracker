@@ -16,7 +16,6 @@ import { MovieListDto } from './dto/movie.list.dto';
 import { AddMovieDto } from './dto/movie.create.dto';
 import { MovieDto } from './dto/movie.dto';
 import { SearchMovieDto } from './dto/search-movie.dto';
-import { AdvancedConsoleLogger } from 'typeorm';
 
 @Controller('api/movietracker')
 export class MovieTrackerController {

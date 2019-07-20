@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { AppLayoutComponent } from '@mt/movietracker/ui';
+import { AuthGuard, LoginComponent } from '@mt/movietracker/auth';
 
 const defaultRoute = '/admin/movie-tracker';
 
@@ -22,9 +23,14 @@ export const routes: Routes = [
       {
         path: '',
         component: AppLayoutComponent,
+        canActivate: [AuthGuard],
         children: children
       }
     ]
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
