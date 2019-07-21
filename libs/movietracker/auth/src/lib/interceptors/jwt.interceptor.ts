@@ -7,7 +7,7 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { AuthenticationService } from './../services/authentication.service';
+import { AuthenticationService } from '@mt/api-services';
 
 @Injectable({
   providedIn: 'root'
