@@ -29,7 +29,7 @@ async function bootstrap() {
     })
   );
 
-  await app.listen(port);
+  await await app.listen(port);
 
   Logger.log(`Server started running on http://localhost:${port}`, 'Bootstrap');
 }

@@ -4,7 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 
-import { MovieTrackerCoreModule } from '@mt/movietracker/core';
+import { MovietrackerCoreModule } from '@mt/movietracker/core';
+import {
+  MovietrackerAuthModule,
+  jwtInterceptorProvider,
+  errorInterceptorProvider
+} from '@mt/movietracker/auth';
+
 import { routes } from './admin-app.routing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -20,9 +26,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       onSameUrlNavigation: 'reload',
       enableTracing: false
     }),
-    MovieTrackerCoreModule
+    MovietrackerCoreModule,
+    MovietrackerAuthModule
   ],
-  providers: [],
+  providers: [jwtInterceptorProvider, errorInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
